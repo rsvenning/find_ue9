@@ -25,7 +25,7 @@ my $netMask = $3;
 # print "inetAddr is $inetAddr" . "\n" . "broadCastAddress is $broadCastAddress" . "\n" . "netMask is $netMask" . "\n";
 
 # We need two processes for this;
-#	One that lisen for the reply from the UE9. (The child.)
+#	One that listen for the reply from the UE9. (The child.)
 #	One that send the broadcast asking for the UE9 to reply. (The parent.)
 my $pid = fork;
 
@@ -33,13 +33,13 @@ if ( $pid == 0 ){
 	# This is the child process.
 	my ($socket,$data);
  
-	#  Create a new UDP socket, we want to lisen for the reply sent from the UE9.
+	#  Create a new UDP socket, we want to listen for the reply sent from the UE9.
 	$socket = new IO::Socket::INET (
     	LocalPort => 52363,
     	Proto        => 'udp'
 	) or die "Child, ERROR creating socket : $!\n";
 
-	print "# Child,  lisening on port 52363 (UDP)" . "\n";
+	print "# Child,  listening on port 52363 (UDP)" . "\n";
  
 	my ($datagram,$flags);
 	my ($ipAddr1, $ipAddr2, $ipAddr3, $ipAddr4);
@@ -70,7 +70,7 @@ if ( $pid == 0 ){
 }
 
 # This is the parent process.
-# Slow down, give the child time to set up the port for lisening.
+# Slow down, give the child time to set up the port for listening.
 sleep 2;
 
 #print "# Parent, about to initialize socket." . "\n";
