@@ -1,5 +1,5 @@
 By:		Roger Svenning
-Date:		2013-01-07
+Date:		2013-01-10
 Program name:	find_ue9.pl
 
 Usage:		./find_ue9
@@ -23,22 +23,31 @@ the IP-address that was given to it.
 
 This program is meant to make it easy to find out.
 
-For now, it is expected to find exaclty one UE9 in the local subnet.
+For now, it is expected to find exaclty one UE9 on the local IP subnet.
 
-Example
--------
+How to get a copy from GITHub and run it
+----------------------------------------
+1.	You need to have git installed.
 
-	roger@tiny:~/pgm/find_ue9$ ./find_ue9.pl 
-		# Child,  lisening on port 52363 (UDP)
-		# Parent, about to send broadcast, from IP-address: 192.168.1.100 to Broadcast-address: 192.168.1.255, Port: 52362
-		# Child,  datagram received:
-		UE9_IP_address  192.168.1.101
-		UE9_IP_gateway  192.168.1.1
-		UE9_IP_subnet   255.255.255.0
-		UE9_portA       52360
-		UE9_portB       52361
-		UE9_MAC_address 00:50:c2:a0:89:76
+2.	With GIT installed, get a copy of find_ue9.pl like this.
 
+		roger@tiny:~$ mkdir tmp
+		roger@tiny:~/tmp$ git clone git://github.com/rsvenning/find_ue9.git
+
+3.	Example of use.
+
+		roger@tiny:~/tmp$ cd find_ue9
+	
+		roger@tiny:~/tmp/find_ue9$ ./find_ue9.pl 
+			# Child,  lisening on port 52363 (UDP)
+			# Parent, about to send broadcast, from IP-address: 192.168.1.100 to Broadcast-address: 192.168.1.255, Port: 52362
+			# Child,  datagram received:
+			UE9_IP_address  192.168.1.101
+			UE9_IP_gateway  192.168.1.1
+			UE9_IP_subnet   255.255.255.0
+			UE9_portA       52360
+			UE9_portB       52361
+			UE9_MAC_address 00:50:c2:a0:89:76
 
 Enjoy!
 /Roger S
