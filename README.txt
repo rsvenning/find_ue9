@@ -74,11 +74,11 @@ How 'find_ue9.pl' can be used in a wrapper script
 
 		$ vi 00_wrapper.sh
 
-		   #! /bin/sh
-		   #
-		   echo "Running ue9SingleIO"
+	#! /bin/sh
+	#
+	echo "Running ue9SingleIO"
 
-		   ./ue9SingleIO `./find_ue9.pl | grep UE9_IP_address | awk '{print $2}'`
+	./ue9SingleIO `./find_ue9.pl | grep UE9_IP_address | awk '{print $2}'`
 
 2.2.	Make the wrapper script executable.
 
@@ -92,10 +92,10 @@ How 'find_ue9.pl' can be used in a wrapper script
 		$ cd C_NativeTCP_UE9
 		$ ./00_wrapper.sh 
 
-		   Running ue9SingleIO
-		   Set DAC0 voltage to 2.500 V ...
-		   Voltage read from AI0: 2.501823 V
-		   Temperature read internal temperature sensor (channel 133): 295.4 K
+	Running ue9SingleIO
+	Set DAC0 voltage to 2.500 V ...
+	Voltage read from AI0: 2.501823 V
+	Temperature read internal temperature sensor (channel 133): 295.4 K
 
 Enjoy!
 /Roger S
