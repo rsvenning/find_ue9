@@ -61,7 +61,7 @@ How 'find_ue9.pl' can be used in a wrapper script
 -------------------------------------------------
 1.	One of the example programs in the archive "C_NativeTCP_UE9.zip",
 	provided by LabJack to get started with LabJack UE9, is 'ue9SingleIO'.
-	I takes one parameter, the IP-address of the UE9 to access.
+	It takes one parameter, the IP-address of the UE9 to access.
 
 		$ ue9SingleIO 192.168.1.101
 
