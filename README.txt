@@ -7,13 +7,15 @@ Usage:		./find_ue9
 Verified on OS:	Ubuntu 11.10 on HP/Compaq 2510p
 		Ubuntu image "2012-10-28-wheezy-raspbian.zip" on RaspberryPi board,
 			sha1sum 2012-10-28-wheezy-raspbian.zip
-			3ee33a94079de631dee606aebd655664035756be  2012-10-28-wheezy-raspbian.zip
+			3ee33a94079de631dee606aebd655664035756be
 
 Perl version:	v5.12.4	(Ubuntu 11.10 on HP/Compaq 2510p)
 		v5.14.2 (Ubuntu on RaspberryPi board)
 
-Note:		- The network interface on the computer must be on the same IP-subnet as the UE9.
-		- There must be only one network interface active (up) on the computer.
+Note:		- The network interface on the computer must be on the
+		  same IP-subnet as the UE9.
+		- There must be only one network interface active (up)
+		  on the computer.
 
 
 The meaning with this program
@@ -55,43 +57,45 @@ How to get a copy from GITHub and run it
 			UE9_MAC_address 00:50:c2:a0:89:76
 
 
-How find_ue9.pl can be used in a wrapper script
------------------------------------------------
-1.	One of the example programs in the archive "C_NativeTCP_UE9.zip", provided by LabJack
-	to get started with LabJack UE9, is 'ue9SingleIO'. I takes one parameter,
-	the IP-address of the UE9 to access.
+How 'find_ue9.pl' can be used in a wrapper script
+-------------------------------------------------
+1.	One of the example programs in the archive "C_NativeTCP_UE9.zip",
+	provided by LabJack to get started with LabJack UE9, is 'ue9SingleIO'.
+	I takes one parameter, the IP-address of the UE9 to access.
 
 		$ ue9SingleIO 192.168.1.101
 
 	Note: Refer to the readme.txt file in the "C_NativeTCP_UE9.zip" arcive
 	to build the progams within it.
 
-2.1.	You may write a wrapper script around 'ue9SingleIO' that will adapt to the IP-address
-	currently used by the UE9. Use your favorite text editor, this example use 'vi'.
+2.1.	You may write a wrapper script around 'ue9SingleIO' that will adapt to
+	the IP-address currently used by the UE9. Use your favorite text editor,
+	this example use 'vi'.
 
 		$ vi 00_wrapper.sh
 
-			#! /bin/sh
-			#
-			echo "Running ue9SingleIO"
+		   #! /bin/sh
+		   #
+		   echo "Running ue9SingleIO"
 
-			./ue9SingleIO `./find_ue9.pl | grep UE9_IP_address | awk '{print $2}'`
+		   ./ue9SingleIO `./find_ue9.pl | grep UE9_IP_address | awk '{print $2}'`
 
 2.2.	Make the wrapper script executable.
 
 		chmod u+x 00_wrapper.sh
 
 3.	Run the wrapper script.
-	For this example to work, you need to put the 'find_ue9.pl' and the '00_wrapper.sh'
-	in the same directory as the example programs. When that is done, try it out.
+	For this example to work, you need to put the 'find_ue9.pl' and
+	the '00_wrapper.sh' in the same directory as the example programs.
+	When that is done, try it out.
 
 		$ cd C_NativeTCP_UE9
 		$ ./00_wrapper.sh 
 
-			Running ue9SingleIO
-			Set DAC0 voltage to 2.500 V ...
-			Voltage read from AI0: 2.501823 V
-			Temperature read internal temperature sensor (channel 133): 295.4 K
+		   Running ue9SingleIO
+		   Set DAC0 voltage to 2.500 V ...
+		   Voltage read from AI0: 2.501823 V
+		   Temperature read internal temperature sensor (channel 133): 295.4 K
 
 Enjoy!
 /Roger S
